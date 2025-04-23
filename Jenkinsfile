@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        // Define any global environment variables here if needed
-    }
-
     stages {
         stage('Clone Repo') {
             steps {
@@ -15,7 +11,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo 'Installing dependencies...'
-                // Example: sh 'npm install' or any setup commands
+                // Example: sh 'npm install' or any setup command
             }
         }
 
