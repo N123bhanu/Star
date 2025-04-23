@@ -1,30 +1,42 @@
 pipeline {
     agent any
+
+    environment {
+        // Define any global environment variables here if needed
+    }
+
     stages {
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/your_username/your_repo.git'
+                git credentialsId: 'b88b9edc-b71e-4370-b64f-7c75454a19a0', url: 'https://github.com/N123bhanu/Star'
             }
         }
+
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                echo 'Installing dependencies...'
+                // Example: sh 'npm install' or any setup commands
             }
         }
+
         stage('Run Tests') {
             steps {
-                sh 'npm test'
+                echo 'Running tests...'
+                // Example: sh 'npm test'
             }
         }
+
         stage('Build') {
             steps {
-                sh 'npm run build'
+                echo 'Building the project...'
+                // Example: sh 'npm run build'
             }
         }
+
         stage('Deploy') {
             steps {
-                // Replace with actual deployment commands (e.g., rsync, FTP, SCP)
-                echo 'Deploying the build...'
+                echo 'Deploying the project...'
+                // Example: sh './deploy.sh'
             }
         }
     }
